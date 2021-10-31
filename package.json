@@ -1,10 +1,13 @@
 {
   "name": "conway-game-of-life",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "http-server -c-1 src/",
+    "test": "node scripts/test.js"
   },
   "devDependencies": {
+    "http-server": "^14.0.0",
     "jest": "^27.3.1"
   }
 }
