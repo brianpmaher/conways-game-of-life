@@ -12,5 +12,5 @@ export default {
   testPathIgnorePatterns: [
     '/node_modules/',
     '<rootDir>/scripts/test.js',
-  ]
+  ],
 }
