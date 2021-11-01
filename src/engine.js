@@ -29,7 +29,7 @@ function setup() {
   canvas.height = canvas.offsetHeight
   canvas.width = canvas.offsetWidth
   context = canvas.getContext('2d')
-  grid = createGrid(10, 10)
+  grid = createGrid(100, 100)
   grid.randomize()
 }
 
