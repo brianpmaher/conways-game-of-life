@@ -10,7 +10,7 @@ function startGameplayLoop() {
   requestAnimationFrame(gameplayLoop)
 }
 
-const frameDelayMs = 100
+const frameDelayMs = 0
 
 async function gameplayLoop() {
   update()
@@ -38,10 +38,17 @@ function update() {
 }
 
 function render() {
+  clearContext()
+  renderLiveCells()
+}
+
+function clearContext() {
   context.fillStyle = 'white'
   context.fillRect(0, 0, canvas.width, canvas.height)
-  context.fillStyle = 'green'
+}
 
+function renderLiveCells() {
+  context.fillStyle = 'green'
   for (let x = 0; x < grid.width; x++)
     for (let y = 0; y < grid.height; y++)
       if (grid.getCell(x, y).isAlive)
