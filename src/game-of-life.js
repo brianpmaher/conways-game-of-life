@@ -12,6 +12,28 @@ export function createGrid(width, height) {
       this.getCell(x, y).setDead()
     },
 
+    randomize() {
+      for (let i = 0; i < this.numCells; i++) {
+        const cell = this._cells[i]
+        if (Math.floor(Math.random() * 2))
+          cell.setAlive()
+        else
+          cell.setDead()
+      }
+    },
+
+    get width() {
+      return this._width
+    },
+
+    get height() {
+      return this._height
+    },
+
+    get numCells() {
+      return this._cells.length
+    },
+
     _width: width,
     _height: height,
     _cells: createCells(width * height),
@@ -45,11 +67,11 @@ export function createGrid(width, height) {
 }
 
 export function computeNextGeneration(grid) {
-  const nextGeneration = createGrid(grid._width, grid._height)
+  const nextGeneration = createGrid(grid.width, grid.height)
 
-  for (let i = 0; i < grid._cells.length; i++) {
-    const x = i % grid._width
-    const y = Math.floor(i / grid._height)
+  for (let i = 0; i < grid.numCells; i++) {
+    const x = i % grid.width
+    const y = Math.floor(i / grid.height)
 
     const currentCell = grid.getCell(x, y)
     const nextCell = nextGeneration.getCell(x, y)
